@@ -48,8 +48,8 @@ fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
 old_id="e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
 v2ray_server_config="/etc/v2ray/config.json"
-v2ray_client_config="/etc/v2ray/233blog_v2ray_config.json"
-backup="/etc/v2ray/233blog_v2ray_backup.conf"
+v2ray_client_config="/etc/v2ray/comebey_v2ray_config.json"
+backup="/etc/v2ray/comebey_v2ray_backup.conf"
 _v2ray_sh="/usr/local/sbin/v2ray"
 systemd=true
 # _test=true
@@ -183,7 +183,7 @@ v2ray_dynamic_port_start() {
 		case $v2ray_dynamic_port_start_input in
 		$v2ray_port)
 			echo
-			echo " 不能和 V2Ray 端口一毛一样...."
+			echo " 不能和 V2Ray 端口一模一样...."
 			echo
 			echo -e " 当前 V2Ray 端口：${cyan}$v2ray_port${none}"
 			error
