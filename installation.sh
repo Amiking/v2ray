@@ -8,7 +8,7 @@ cyan='\e[96m'
 none='\e[0m'
 
 # Root
-[[ $(id -u) != 0 ]] && echo -e "\n 哎呀……请使用 ${red}root ${none}用户运行 ${yellow}~(^_^) ${none}\n" && exit 1
+[[ $(id -u) != 0 ]] && echo -e "\n 老铁……请使用 ${red}root ${none}用户运行 ${yellow}~(^_^) ${none}\n" && exit 1
 
 cmd="apt-get"
 
@@ -20,7 +20,7 @@ elif [[ $sys_bit == "x86_64" ]]; then
 	v2ray_bit="64"
 else
 	echo -e " 
-	哈哈……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}
+	老铁……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}
 
 	备注: 仅支持 Ubuntu 16+ / Debian 8+ / CentOS 7+ 系统
 	" && exit 1
@@ -38,7 +38,7 @@ if [[ -f /usr/bin/apt-get || -f /usr/bin/yum ]] && [[ -f /bin/systemctl ]]; then
 else
 
 	echo -e " 
-	哈哈……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}
+	老铁……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}
 
 	备注: 仅支持 Ubuntu 16+ / Debian 8+ / CentOS 7+ 系统
 	" && exit 1
@@ -283,7 +283,7 @@ tls_config() {
 
 	while :; do
 		echo
-		echo -e "请输入一个 $magenta正确的域名$none，一定一定一定要正确，不！能！出！错！"
+		echo -e "请输入一个 $magenta正确的域名$none，一定要正确，不能出错"
 		read -p "(例如：233blog.com): " domain
 		[ -z "$domain" ] && error && continue
 		echo
@@ -408,14 +408,14 @@ path_config_ask() {
 path_config() {
 	echo
 	while :; do
-		echo -e "请输入想要 ${magenta}用来分流的路径$none , 例如 /233blog , 那么只需要输入 233blog 即可"
+		echo -e "请输入想要 ${magenta}用来分流的路径$none , 例如 /Comebey for hasan , 那么只需要输入 Comebey for hasan 即可"
 		read -p "$(echo -e "(默认: [${cyan}233blog$none]):")" path
 		[[ -z $path ]] && path="233blog"
 
 		case $path in
 		*[/$]*)
 			echo
-			echo -e " 由于这个脚本太辣鸡了..所以分流的路径不能包含$red / $none或$red $ $none这两个符号.... "
+			echo -e " 由于这个脚本在papa..所以分流的路径不能包含$red / $none或$red $ $none这两个符号.... "
 			echo
 			error
 			;;
@@ -465,7 +465,7 @@ proxy_site_config() {
 blocked_hosts() {
 	echo
 	while :; do
-		echo -e "是否开启广告拦截(会影响性能) [${magenta}Y/N$none]"
+		echo -e "是否开启广告拦截(会影响性能,不能100%拦截成功) [${magenta}Y/N$none]"
 		read -p "$(echo -e "(默认 [${cyan}N$none]):")" blocked_ad
 		[[ -z $blocked_ad ]] && blocked_ad="n"
 
@@ -527,7 +527,7 @@ shadowsocks_port_config() {
 		case $ssport in
 		$v2ray_port)
 			echo
-			echo " 不能和 V2Ray 端口一毛一样...."
+			echo " 不能和 V2Ray 端口一样...."
 			error
 			;;
 		[1-9] | [1-9][0-9] | [1-9][0-9][0-9] | [1-9][0-9][0-9][0-9] | [1-5][0-9][0-9][0-9][0-9] | 6[0-4][0-9][0-9][0-9] | 65[0-4][0-9][0-9] | 655[0-3][0-5])
@@ -577,7 +577,7 @@ shadowsocks_password_config() {
 		case $sspass in
 		*[/$]*)
 			echo
-			echo -e " 由于这个脚本太辣鸡了..所以密码不能包含$red / $none或$red $ $none这两个符号.... "
+			echo -e " 由于这个脚本在papa..所以密码不能包含$red / $none或$red $ $none这两个符号.... "
 			echo
 			error
 			;;
@@ -629,7 +629,7 @@ shadowsocks_ciphers_config() {
 install_info() {
 	clear
 	echo
-	echo " ....准备安装了咯..看看有毛有配置正确了..."
+	echo " ....开始准备安装..看看有没有配置正确了..."
 	echo
 	echo "---------- 安装信息 -------------"
 	echo
@@ -963,7 +963,7 @@ show_config_info() {
 install() {
 	if [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f $backup && -d /etc/v2ray/233boy/v2ray ]]; then
 		echo
-		echo " 大佬...你已经安装 V2Ray 啦...无需重新安装"
+		echo " 老铁...你已经安装 V2Ray 啦...无需重新安装"
 		echo
 		echo -e " $yellow输入 ${cyan}v2ray${none} $yellow即可管理 V2Ray${none}"
 		echo
@@ -1015,7 +1015,7 @@ uninstall() {
 		echo
 	else
 		echo -e "
-		$red 大胸弟...你貌似毛有安装 V2Ray ....卸载个鸡鸡哦...$none
+		$red 兄台...你貌似毛有安装 V2Ray ....让我去哪里卸载呢!...$none
 
 		备注...仅支持卸载使用我 (v2ray6.com) 提供的 V2Ray 一键安装脚本
 		" && exit 1
@@ -1036,9 +1036,9 @@ local)
 	;;
 *)
 	echo
-	echo -e " 你输入的这个参数 <$red $args $none> ...这个是什么鬼啊...脚本不认识它哇"
+	echo -e " 你输入的这个参数 <$red $args $none> ......脚本不认识它哇"
 	echo
-	echo -e " 这个辣鸡脚本仅支持输入$green local / online $none参数"
+	echo -e " 这个脚本仅支持输入$green local / online $none参数"
 	echo
 	echo -e " 输入$yellow local $none即是使用本地安装"
 	echo
