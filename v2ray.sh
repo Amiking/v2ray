@@ -768,7 +768,7 @@ install_v2ray() {
 	fi
 
 	# download v2ray file then install
-	_load download-ComeBey/v2ray.sh
+	_load download-233boy/v2ray.sh
 	_download_v2ray_file
 	_install_v2ray_service
 	_mkdir_dir
