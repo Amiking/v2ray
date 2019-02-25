@@ -750,7 +750,7 @@ install_v2ray() {
 			exit 1
 		fi
 		mkdir -p /etc/v2ray/comebey/v2ray
-		cp -rf $(pwd)/* /etc/comebey/233boy/v2ray
+		cp -rf $(pwd)/* /etc/v2ray/comebey/v2ray
 	else
 		pushd /tmp
 		git clone https://github.com/ComeBey/v2ray -b "$_gitbranch" /etc/v2ray/comebey/v2ray
