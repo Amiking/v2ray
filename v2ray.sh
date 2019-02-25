@@ -47,9 +47,9 @@ fi
 
 uuid=$(cat /proc/sys/kernel/random/uuid)
 old_id="e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
-v2ray_server_config="/etc/ComeBey/config.json"
-v2ray_client_config="/etc/v2ray/ComeBey_v2ray_config.json"
-backup="/etc/v2ray/ComeBey_v2ray_backup.conf"
+v2ray_server_config="/etc/233boy/config.json"
+v2ray_client_config="/etc/v2ray/233boy_v2ray_config.json"
+backup="/etc/v2ray/233boy_v2ray_backup.conf"
 _v2ray_sh="/usr/local/sbin/v2ray"
 systemd=true
 # _test=true
@@ -100,7 +100,7 @@ ciphers=(
 )
 
 _load() {
-	local _dir="/etc/v2ray/ComeBey/v2ray/src/"
+	local _dir="/etc/v2ray/233boy/v2ray/src/"
 	. "${_dir}$@"
 }
 
