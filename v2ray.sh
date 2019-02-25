@@ -284,7 +284,7 @@ tls_config() {
 	while :; do
 		echo
 		echo -e "请输入一个 $magenta正确的域名$none，一定一定一定要正确，不！能！出！错！"
-		read -p "(例如：google.com): " domain
+		read -p "(例如：comebey.com): " domain
 		[ -z "$domain" ] && error && continue
 		echo
 		echo
@@ -753,7 +753,7 @@ install_v2ray() {
 		cp -rf $(pwd)/* /etc/v2ray/comebey/v2ray
 	else
 		pushd /tmp
-		git clone https://github.com/comebey/v2ray -b "$_gitbranch" /etc/v2ray/comebey/v2ray
+		git clone https://raw.githubusercontent.com/ComeBey/v2ray/master/v2ray.sh -b "$_gitbranch" /etc/v2ray/comebey/v2ray
 		popd
 
 	fi
