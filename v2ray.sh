@@ -47,9 +47,9 @@ fi
 
 uuid=$(cat /proc/sys/kernel/random/uuid)
 old_id="e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
-v2ray_server_config="/etc/v2ray/config.json"
-v2ray_client_config="/etc/v2ray/233blog_v2ray_config.json"
-backup="/etc/v2ray/233blog_v2ray_backup.conf"
+v2ray_server_config="/etc/comebey/config.json"
+v2ray_client_config="/etc/v2ray/comebey_v2ray_config.json"
+backup="/etc/v2ray/comebey_v2ray_backup.conf"
 _v2ray_sh="/usr/local/sbin/v2ray"
 systemd=true
 # _test=true
@@ -1053,9 +1053,9 @@ while :; do
 	echo
 	echo "........... V2Ray 一键安装脚本 & 管理脚本 by v2ray6.com .........."
 	echo
-	echo "帮助说明: https://v2ray6.com/post/1/"
+	echo "youtube点击关注: https://www.youtube.com/channel/UCiMTLB5vELIq3Dz9muBRfJw"
 	echo
-	echo "搭建教程: https://v2ray6.com/post/2/"
+	echo "twitter点击关注: https://twitter.com/WangTao_iam"
 	echo
 	echo " 1. 安装"
 	echo
