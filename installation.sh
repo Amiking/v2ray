@@ -100,7 +100,7 @@ ciphers=(
 )
 
 _load() {
-	local _dir="/etc/v2ray/233boy/v2ray/src/"
+	local _dir="/etc/v2ray/comebey/v2ray/src/"
 	. "${_dir}$@"
 }
 
@@ -408,7 +408,7 @@ path_config_ask() {
 path_config() {
 	echo
 	while :; do
-		echo -e "请输入想要 ${magenta}用来分流的路径$none , 例如 /Comebey for hasan , 那么只需要输入 Comebey for hasan 即可"
+		echo -e "请输入想要 ${magenta}用来分流的路径$none , 例如 /Comebey , 那么只需要输入 Comebey 即可"
 		read -p "$(echo -e "(默认: [${cyan}233blog$none]):")" path
 		[[ -z $path ]] && path="233blog"
 
@@ -435,18 +435,18 @@ path_config() {
 proxy_site_config() {
 	echo
 	while :; do
-		echo -e "请输入 ${magenta}一个正确的$none ${cyan}网址$none 用来作为 ${cyan}网站的伪装$none , 例如 https://liyafly.com"
+		echo -e "请输入 ${magenta}一个正确的$none ${cyan}网址$none 用来作为 ${cyan}网站的伪装$none , 例如 https://google.com"
 		echo -e "举例...你当前的域名是 $green$domain$none , 伪装的网址的是 https://liyafly.com"
-		echo -e "然后打开你的域名时候...显示出来的内容就是来自 https://liyafly.com 的内容"
+		echo -e "然后打开你的域名时候...显示出来的内容就是来自 https://google.com 的内容"
 		echo -e "其实就是一个反代...明白就好..."
 		echo -e "如果不能伪装成功...可以使用 v2ray config 修改伪装的网址"
-		read -p "$(echo -e "(默认: [${cyan}https://liyafly.com$none]):")" proxy_site
-		[[ -z $proxy_site ]] && proxy_site="https://liyafly.com"
+		read -p "$(echo -e "(默认: [${cyan}https://google.com$none]):")" proxy_site
+		[[ -z $proxy_site ]] && proxy_site="https://google.com"
 
 		case $proxy_site in
 		*[#$]*)
 			echo
-			echo -e " 由于这个脚本太辣鸡了..所以伪装的网址不能包含$red # $none或$red $ $none这两个符号.... "
+			echo -e " 由于这个脚本在papa..所以伪装的网址不能包含$red # $none或$red $ $none这两个符号.... "
 			echo
 			error
 			;;
@@ -572,8 +572,8 @@ shadowsocks_password_config() {
 
 	while :; do
 		echo -e "请输入 "$yellow"Shadowsocks"$none" 密码"
-		read -p "$(echo -e "(默认密码: ${cyan}233blog.com$none)"): " sspass
-		[ -z "$sspass" ] && sspass="233blog.com"
+		read -p "$(echo -e "(默认密码: ${cyan}coembey.com$none)"): " sspass
+		[ -z "$sspass" ] && sspass="comebey520"
 		case $sspass in
 		*[/$]*)
 			echo
@@ -743,24 +743,24 @@ install_v2ray() {
 	if [[ $local_install ]]; then
 		if [[ ! -d $(pwd)/config ]]; then
 			echo
-			echo -e "$red 哎呀呀...安装失败了咯...$none"
+			echo -e "$red 晕...安装失败了咯...$none"
 			echo
-			echo -e " 请确保你有完整的上传 v2ray6.com 的 V2Ray 一键安装脚本 & 管理脚本到当前 ${green}$(pwd) $none目录下"
+			echo -e " 请确保你有完整的上传 V2Ray一键安装脚本 & 管理脚本到当前 ${green}$(pwd) $none目录下"
 			echo
 			exit 1
 		fi
-		mkdir -p /etc/v2ray/233boy/v2ray
-		cp -rf $(pwd)/* /etc/v2ray/233boy/v2ray
+		mkdir -p /etc/v2ray/comebey/v2ray
+		cp -rf $(pwd)/* /etc/v2ray/comebey/v2ray
 	else
 		pushd /tmp
-		git clone https://github.com/233boy/v2ray -b "$_gitbranch" /etc/v2ray/233boy/v2ray
+		git clone https://github.com/comebey/v2ray -b "$_gitbranch" /etc/v2ray/comebey/v2ray
 		popd
 
 	fi
 
-	if [[ ! -d /etc/v2ray/233boy/v2ray ]]; then
+	if [[ ! -d /etc/v2ray/comebey/v2ray ]]; then
 		echo
-		echo -e "$red 哎呀呀...克隆脚本仓库出错了...$none"
+		echo -e "$red 晕...克隆脚本仓库出错了...$none"
 		echo
 		echo -e " 温馨提示..... 请尝试自行安装 Git: ${green}$cmd install -y git $none 之后再安装此脚本"
 		echo
@@ -843,8 +843,8 @@ del_port() {
 }
 
 config() {
-	cp -f /etc/v2ray/233boy/v2ray/config/backup.conf $backup
-	cp -f /etc/v2ray/233boy/v2ray/v2ray.sh $_v2ray_sh
+	cp -f /etc/v2ray/comebey/v2ray/config/backup.conf $backup
+	cp -f /etc/v2ray/comebey/v2ray/v2ray.sh $_v2ray_sh
 	chmod +x $_v2ray_sh
 
 	v2ray_id=$uuid
@@ -896,14 +896,14 @@ backup_config() {
 		sed -i "30s/=10000/=$v2ray_dynamic_port_start_input/; 33s/=20000/=$v2ray_dynamic_port_end_input/" $backup
 	fi
 	if [[ $shadowsocks ]]; then
-		sed -i "42s/=/=true/; 45s/=6666/=$ssport/; 48s/=233blog.com/=$sspass/; 51s/=chacha20-ietf/=$ssciphers/" $backup
+		sed -i "42s/=/=true/; 45s/=6666/=$ssport/; 48s/=comebey/=$sspass/; 51s/=chacha20-ietf/=$ssciphers/" $backup
 	fi
-	[[ $v2ray_transport == [45] ]] && sed -i "36s/=233blog.com/=$domain/" $backup
+	[[ $v2ray_transport == [45] ]] && sed -i "36s/=comebey/=$domain/" $backup
 	[[ $caddy ]] && sed -i "39s/=/=true/" $backup
 	[[ $ban_ad ]] && sed -i "54s/=/=true/" $backup
 	if [[ $is_path ]]; then
-		sed -i "57s/=/=true/; 60s/=233blog/=$path/" $backup
-		sed -i "63s#=https://liyafly.com#=$proxy_site#" $backup
+		sed -i "57s/=/=true/; 60s/=comebey/=$path/" $backup
+		sed -i "63s#=https://google.com#=$proxy_site#" $backup
 	fi
 }
 
@@ -961,14 +961,14 @@ show_config_info() {
 }
 
 install() {
-	if [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f $backup && -d /etc/v2ray/233boy/v2ray ]]; then
+	if [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f $backup && -d /etc/v2ray/comebey/v2ray ]]; then
 		echo
 		echo " 老铁...你已经安装 V2Ray 啦...无需重新安装"
 		echo
 		echo -e " $yellow输入 ${cyan}v2ray${none} $yellow即可管理 V2Ray${none}"
 		echo
 		exit 1
-	elif [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f /etc/v2ray/233blog_v2ray_backup.txt && -d /etc/v2ray/233boy/v2ray ]]; then
+	elif [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f /etc/v2ray/comebey_v2ray_backup.txt && -d /etc/v2ray/comebey/v2ray ]]; then
 		echo
 		echo "  如果你需要继续安装.. 请先卸载旧版本"
 		echo
@@ -999,7 +999,7 @@ install() {
 }
 uninstall() {
 
-	if [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f $backup && -d /etc/v2ray/233boy/v2ray ]]; then
+	if [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f $backup && -d /etc/v2ray/comebey/v2ray ]]; then
 		. $backup
 		if [[ $mark ]]; then
 			_load uninstall.sh
@@ -1009,7 +1009,7 @@ uninstall() {
 			echo
 		fi
 
-	elif [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f /etc/v2ray/233blog_v2ray_backup.txt && -d /etc/v2ray/233boy/v2ray ]]; then
+	elif [[ -f /usr/bin/v2ray/v2ray && -f /etc/v2ray/config.json ]] && [[ -f /etc/v2ray/comebey_v2ray_backup.txt && -d /etc/v2ray/comebey/v2ray ]]; then
 		echo
 		echo -e " $yellow输入 ${cyan}v2ray uninstall${none} $yellow即可卸载${none}"
 		echo
@@ -1017,7 +1017,7 @@ uninstall() {
 		echo -e "
 		$red 兄台...你貌似毛有安装 V2Ray ....让我去哪里卸载呢!...$none
 
-		备注...仅支持卸载使用我 (v2ray6.com) 提供的 V2Ray 一键安装脚本
+		备注...仅支持卸载使用我 (google.com) 提供的 V2Ray 一键安装脚本
 		" && exit 1
 	fi
 
@@ -1051,11 +1051,11 @@ esac
 clear
 while :; do
 	echo
-	echo "........... V2Ray 一键安装脚本 & 管理脚本 by v2ray6.com .........."
+	echo "........... V2Ray 一键安装脚本 & 管理脚本 by google.com .........."
 	echo
-	echo "帮助说明: https://v2ray6.com/post/1/"
+	echo "Youtube点击关注: https://www.youtube.com/channel/UCiMTLB5vELIq3Dz9muBRfJw"
 	echo
-	echo "搭建教程: https://v2ray6.com/post/2/"
+	echo "Twitter点击关注: https://twitter.com/WangTao_iam"
 	echo
 	echo " 1. 安装"
 	echo
