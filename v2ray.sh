@@ -753,12 +753,12 @@ install_v2ray() {
 		cp -rf $(pwd)/* /etc/v2ray/comebey/v2ray
 	else
 		pushd /tmp
-		git clone https://github.com/comebey/v2ray -b "$_gitbranch" /etc/v2ray/comebey/v2ray
+		git clone https://github.com/ComeBey/v2ray -b "$_gitbranch" /etc/v2ray/comebey/v2ray
 		popd
 
 	fi
 
-	if [[ ! -d /etc/v2ray/233boy/v2ray ]]; then
+	if [[ ! -d /etc/v2ray/comebey/v2ray ]]; then
 		echo
 		echo -e "$red 哎呀呀...克隆脚本仓库出错了...$none"
 		echo
