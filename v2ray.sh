@@ -48,8 +48,8 @@ fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
 old_id="e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
 v2ray_server_config="/etc/v2ray/config.json"
-v2ray_client_config="/etc/v2ray/comebey_v2ray_config.json"
-backup="/etc/v2ray/comebey_v2ray_backup.conf"
+v2ray_client_config="/etc/v2ray/233blog_v2ray_config.json"
+backup="/etc/v2ray/233blog_v2ray_backup.conf"
 _v2ray_sh="/usr/local/sbin/v2ray"
 systemd=true
 # _test=true
@@ -100,7 +100,7 @@ ciphers=(
 )
 
 _load() {
-	local _dir="/etc/v2ray/comebey/v2ray/src/"
+	local _dir="/etc/v2ray/233boy/v2ray/src/"
 	. "${_dir}$@"
 }
 
@@ -750,15 +750,15 @@ install_v2ray() {
 			exit 1
 		fi
 		mkdir -p /etc/v2ray/comebey/v2ray
-		cp -rf $(pwd)/* /etc/v2ray/comebey/v2ray
+		cp -rf $(pwd)/* /etc/comebey/233boy/v2ray
 	else
 		pushd /tmp
-		git clone https://github.com/233boy/v2ray -b "$_gitbranch" /etc/v2ray/233boy/v2ray
+		git clone https://github.com/ComeBey/v2ray -b "$_gitbranch" /etc/v2ray/comebey/v2ray
 		popd
 
 	fi
 
-	if [[ ! -d /etc/v2ray/233boy/v2ray ]]; then
+	if [[ ! -d /etc/v2ray/comebey/v2ray ]]; then
 		echo
 		echo -e "$red 哎呀呀...克隆脚本仓库出错了...$none"
 		echo
