@@ -284,7 +284,7 @@ tls_config() {
 	while :; do
 		echo
 		echo -e "请输入一个 $magenta正确的域名$none，一定要正确，不能出错"
-		read -p "(例如：233blog.com): " domain
+		read -p "(例如：comebey): " domain
 		[ -z "$domain" ] && error && continue
 		echo
 		echo
@@ -409,7 +409,7 @@ path_config() {
 	echo
 	while :; do
 		echo -e "请输入想要 ${magenta}用来分流的路径$none , 例如 /Comebey , 那么只需要输入 Comebey 即可"
-		read -p "$(echo -e "(默认: [${cyan}233blog$none]):")" path
+		read -p "$(echo -e "(默认: [${cyan}comebey$none]):")" path
 		[[ -z $path ]] && path="233blog"
 
 		case $path in
@@ -745,7 +745,7 @@ install_v2ray() {
 			echo
 			echo -e "$red 晕...安装失败了咯...$none"
 			echo
-			echo -e " 请确保你有完整的上传 V2Ray一键安装脚本 & 管理脚本到当前 ${green}$(pwd) $none目录下"
+			echo -e " 请确保你有完整的上传V2Ray一键安装脚本 & 管理脚本到当前 ${green}$(pwd) $none目录下"
 			echo
 			exit 1
 		fi
